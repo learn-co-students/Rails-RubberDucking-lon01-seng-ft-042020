@@ -1,0 +1,6 @@
+<h1>Here are all the joins</h1>
+<% @joins.each do |j|%>
+    <ul>
+    <li><%=" #{j.student.name} has these ducks: #{j.duck.name}"%></li>
+    </ul>
+<% end %>

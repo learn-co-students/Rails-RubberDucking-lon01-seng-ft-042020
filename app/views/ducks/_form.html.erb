@@ -1,0 +1,11 @@
+<%= form_for @duck do |f| %>
+    <%= f.label :name, "Duck name:" %>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :description, "Duck Description" %>
+    <%= f.text_area :description %><br>
+
+    <%= f.label :student, "Pick a student" %>
+    <%= f.collection_select :student, Student.all, :id, :name %>
+    <%= f.submit %>
+<% end %>
