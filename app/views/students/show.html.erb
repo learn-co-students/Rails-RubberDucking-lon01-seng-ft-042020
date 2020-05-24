@@ -1,0 +1,8 @@
+<h1>This is a student's show page</h1>
+<%= "#{@student.name} is the student in question "%>
+<%= "These are their ducks:"%>
+<ul>
+    <% @student.ducks.map do |duck|%>
+     <li><%=duck.name%></li>
+     <% end %>
+</ul>

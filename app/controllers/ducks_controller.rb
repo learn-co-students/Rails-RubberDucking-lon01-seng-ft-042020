@@ -4,4 +4,40 @@ class DucksController < ApplicationController
     @ducks = Duck.all
   end
 
+  def new
+    @duck = Duck.new
+  end
+
+  def create
+    @duck = Duck.create(duck_params)
+    if @duck.valid?
+      redirect_to duck_path(@duck.id)
+    else
+      render :new
+    end
+  end
+
+  def show
+    @duck = Duck.find(params[:id])
+  end
+
+  def edit  
+    @duck = Duck.find(params[:id])
+  end
+
+  def update
+    @duck = Duck.find(params[:id])
+    @duck.update(duck_params)
+    if @duck.valid?
+      redirect_to duck_path(@duck.id)
+    else
+      render :edit
+    end
+  end
+
+  private
+  def duck_params
+    params.require(:duck).permit(:name,:description)
+  end
+
 end
